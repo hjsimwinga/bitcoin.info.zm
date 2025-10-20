@@ -8,9 +8,27 @@
     <link rel="apple-touch-icon" href="/logo.png?v=1">
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
     <link rel="shortcut icon" href="/favicon.ico?v=1">
+    <!-- Social sharing (Open Graph + Twitter) -->
+    <meta name="description" content="Bitcoin empowers Zambians with neutral, global money for savings, remittances, cross‑border trade, and new jobs in tech, finance and energy." />
+    <meta property="og:title" content="Bitcoin for Zambia" />
+    <meta property="og:description" content="Bitcoin empowers Zambians with neutral, global money for savings, remittances, cross‑border trade, and new jobs in tech, finance and energy." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bitcoin.info.zm/" />
+    <meta property="og:image" content="https://bitcoin.info.zm/share.png?v=1" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="bitcoin.info.zm" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bitcoin for Zambia" />
+    <meta name="twitter:description" content="Bitcoin empowers Zambians with neutral, global money for savings, remittances, cross‑border trade, and new jobs in tech, finance and energy." />
+    <meta name="twitter:image" content="https://bitcoin.info.zm/share.png?v=1" />
+    <!-- High‑DPI icons for mobile/desktop launchers -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo.png?v=1">
+    <link rel="icon" type="image/png" sizes="192x192" href="/logo.png?v=1">
+    <link rel="icon" type="image/png" sizes="512x512" href="/logo.png?v=1">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
@@ -33,7 +51,9 @@
             color: #333;
             border-bottom: 2px solid #f7931a;
             padding-bottom: 10px;
-            font-weight: 800;
+            font-weight: 700; /* iOS Safari reliably renders 700 */
+            -webkit-font-smoothing: antialiased;
+            font-synthesis: weight;
         }
         h3 {
             color: #555;
@@ -77,16 +97,16 @@
             font-family: Arial, sans-serif;
         }
         .logo .bitcoin {
-            color: #000000; /* Black */
+            color: #198a00; /* Zambia green */
         }
         .logo .dot {
-            color: #e88100; /* Zambia orange (eagle) */
+            color: #de1f26; /* Red */
         }
         .logo .info {
-            color: #de1f26; /* Zambia red */
+            color: #000000; /* Black */
         }
         .logo .zm {
-            color: #198a00; /* Zambia green */
+            color: #ff7a00; /* Bright orange for higher visibility */
         }
         .sticky-header {
             position: fixed;
