@@ -28,44 +28,43 @@ cp .env.example .env
 
 ## Deploy on VPS (PM2)
 
-**1. Push from your PC, pull on the server**
-```bash
-# on PC — after changes are committed
-git push
+Your server paths:
+- Main site: `/var/www/bitcoin-info-zm`
+- SatReward: `/root/SatReward`
 
-# on server
-cd /path/to/bitcoin.info.zm   # pm2 show bitcoin-info-zm → script path
+**Step 1 — Main site**
+```bash
+cd /var/www/bitcoin-info-zm
 git pull
 npm install
-```
-
-**2. Env file on server** (create once, never in git)
-```bash
 cp .env.example .env
 nano .env
 ```
-Example:
+Put in `.env`:
 ```
 BITCOIN_INFO_PORT=3000
 SATREWARD_URL=http://127.0.0.1:30001
 ```
 
-**3. SatReward** (separate repo — see SatReward README)
+**Step 2 — SatReward** (create `.env` before build)
 ```bash
-cd /path/to/SatReward
+cd /root/SatReward
 git pull
+cp .env.example .env
+nano .env
+```
+Add your Blink key and wallet ID, then:
+```bash
 npm install
 npm run build
 npx prisma db push
-cp .env.example .env
-nano .env          # add BLINK_API_KEY and wallet ID
-pm2 start npm --name satreward -- start
-pm2 save
 ```
 
-**4. Restart main site**
+**Step 3 — PM2** (remove bad copies first)
 ```bash
-cd /path/to/bitcoin.info.zm
+pm2 delete satreward 2>/dev/null || true
+cd /root/SatReward
+pm2 start npm --name satreward --cwd /root/SatReward -- start
 pm2 restart bitcoin-info-zm
 pm2 save
 ```
