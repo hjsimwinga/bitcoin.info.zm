@@ -42,9 +42,10 @@ nano .env
 ```
 Put in `.env`:
 ```
-BITCOIN_INFO_PORT=3000
+BITCOIN_INFO_PORT=2001
 SATREWARD_URL=http://127.0.0.1:30001
 ```
+(Nginx on this VPS sends traffic to port **2001**, not 3000.)
 
 **Step 2 — SatReward** (create `.env` before build)
 ```bash

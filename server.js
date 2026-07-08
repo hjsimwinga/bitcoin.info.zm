@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 
 const app = express();
-const PORT = process.env.BITCOIN_INFO_PORT || 3000;
+const PORT = process.env.BITCOIN_INFO_PORT || process.env.PORT || 3000;
 const SATREWARD_URL = process.env.SATREWARD_URL || 'http://127.0.0.1:30001';
 
 // SatReward proxy — optional so the main site still works if deps are missing

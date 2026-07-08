@@ -5,7 +5,7 @@ module.exports = {
       cwd: "/var/www/bitcoin-info-zm",
       script: "server.js",
       env: {
-        BITCOIN_INFO_PORT: 3000,
+        BITCOIN_INFO_PORT: 2001,
         SATREWARD_URL: "http://127.0.0.1:30001",
       },
     },
