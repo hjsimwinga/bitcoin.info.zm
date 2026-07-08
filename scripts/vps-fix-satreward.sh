@@ -29,6 +29,7 @@ pm2 save
 
 echo "=== 4. Test ==="
 sleep 3
+curl -sf -o /dev/null -w "Home (3000): %{http_code}\n" http://127.0.0.1:3000/ || echo "Home (3000): FAIL"
 curl -sf -o /dev/null -w "SatReward (30001): %{http_code}\n" http://127.0.0.1:30001/satreward || echo "SatReward (30001): FAIL"
 curl -sf -o /dev/null -w "Proxy (3000): %{http_code}\n" http://127.0.0.1:3000/satreward || echo "Proxy (3000): FAIL"
-echo "Done. Open https://bitcoin.info.zm/satreward"
+echo "Done. Open https://bitcoin.info.zm/"
